@@ -50,6 +50,8 @@ decisions-app/
 
 ---
 
+**(NÃO SE ESQUEÇA DE POPULAR O BANCO COM AS PERGUNTAS PRINCIPAIS PRESENTES NO DILEMMAS.PY ANTES DE EXECUTAR!)**
+
 ## ⚙️ Como Executar o Projeto
 
 ### 1️⃣ Clonar o repositório

@@ -17,6 +17,19 @@
 /.next/
 /out/
 
+# python
+/__pycache__/
+app.db
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
 # production
 /build
 

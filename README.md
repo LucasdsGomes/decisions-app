@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💭 Decisions App
 
-## Getting Started
+Aplicação fullstack desenvolvida com **Next.js**, **FastAPI** e **PostgreSQL**, que apresenta dilemas éticos do cotidiano para incentivar a reflexão sobre **tomada de decisão e comportamento profissional**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+📸 Preview
+
+https://github.com/user-attachments/assets/4c2c8637-e72a-4ac4-8bd9-1cc777214def
+
+## 🚀 Tecnologias Utilizadas
+
+### 🧠 Backend
+- **[FastAPI](https://fastapi.tiangolo.com/)**
+- **SQLAlchemy** para modelagem ORM  
+- **Pydantic** para validação de dados  
+- **PostgreSQL** como banco de dados  
+- **Uvicorn** para execução do servidor  
+- **CORS Middleware** para integração com o frontend  
+
+### 🎨 Frontend
+- **[Next.js](https://nextjs.org/)** com **TypeScript**
+- **React Hooks (useEffect, useState)**  
+- **Fetch API** para comunicação com o backend  
+- **Tailwind CSS** (opcional para estilização rápida)
+
+---
+
+## 🧩 Estrutura de Pastas
+
+decisions-app/
+│
+├── backend/
+│ ├── main.py
+│ ├── models.py
+│ ├── schemas.py
+│ ├── database.py
+│ ├── dilemmas.py # Script de seed automático do banco
+│ ├── requirements.txt
+│
+├── frontend/
+│ ├── app/
+│ │ ├── page.tsx
+│ │ ├── components/
+│ │ └── ...
+│ ├── package.json
+│
+└── README.md
+
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+### 1️⃣ Clonar o repositório
+```
+git clone https://github.com/seu-usuario/decisions-app.git
+cd decisions-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2️⃣ Configurar variáveis de ambiente (opcional)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Crie um arquivo .env dentro da pasta backend/:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+DATABASE_URL=postgresql://user:password@db:5432/dilemmas-project
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+🌐 Endpoints Principais
+GET /dilemmas/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Retorna todos os dilemas cadastrados no banco, com suas respectivas opções e pontuações éticas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Exemplo de resposta:
 
-## Deploy on Vercel
+```
+[
+  {
+    "id": 1,
+    "title": "O Colega e o Relatório",
+    "description": "Você descobre que um colega alterou números...",
+    "options": [
+      { "text": "Ignorar e fingir que não viu.", "ethicalScore": -7 },
+      { "text": "Confrontar o colega em particular.", "ethicalScore": 8 }
+    ]
+  }
+]
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+💡 Funcionalidades
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+✅ Exibição dinâmica de dilemas e opções éticas
+✅ Renderização automática das perguntas via fetch() no frontend
+✅ Integração total entre FastAPI e Next.js via proxy (rewrites)
+✅ Banco populado automaticamente com dilemas iniciais
+✅ Código totalmente modular e pronto para expansão
+
+🧠 Aprendizados
+
+- Durante o desenvolvimento deste projeto, trabalhei com:
+- Integração entre frontend e backend via API REST
+- Modelagem de dados com SQLAlchemy
+- Organização de schemas e seed automático do banco
+- Configuração de CORS e variáveis de ambiente
+
+🧑‍💻 Autor
+
+Desenvolvido por Lucas de Souza Gomes
+
+💬 Sinta-se à vontade para abrir issues, enviar pull requests ou trocar ideias sobre arquitetura e melhorias!
